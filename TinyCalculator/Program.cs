@@ -38,21 +38,23 @@ while (con)
         Console.WriteLine($"{dividend} {op} {divisor} = {sol}");
         Console.ResetColor();
         dividend = sol;
-        Console.WriteLine("Wollen sie weiterrechnen?");
-        string x = Console.ReadLine();
+        Console.WriteLine("Wollen sie weiterrechnen[y]: ");
+        string? x = Console.ReadLine();
         if(x == "y")
         {
             con = true;
+            Console.WriteLine($"Dividend: {dividend}");
         }
-        Console.WriteLine($"Dividend: {dividend}");
     }
 }
+Console.WriteLine($"Endergebnis: {dividend}");
+Console.ReadKey();
 static int ReadNumber(string name)
 {
     while (true)
     {
         Console.Write($"{name}: ");
-        string input = Console.ReadLine();
+        string? input = Console.ReadLine();
         if (int.TryParse(input, out int dividend))
         {
             return dividend;
@@ -67,7 +69,7 @@ string GetOperator()
     while (true)
     {
         Console.Write("Select Operator: ");
-        string op = Console.ReadLine();
+        string? op = Console.ReadLine();
         if (op == "/" || op == "*" || op == "+" || op == "-")
         {
             return op;
