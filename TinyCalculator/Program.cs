@@ -49,6 +49,15 @@ static int ReadNumber(string name)
 }
 string GetOperator()
 {
+    bool isNotValid = true;
+    while(isNotValid )
+    {
+        isNotValid = false;
     Console.Write("Select Operator: ");
-    return Console.ReadLine();
+    string op = Console.ReadLine();
+    if (op == "/"|| op== "*"|| op == "+" || op == "-")
+    {
+
+    }
+    }
 }
