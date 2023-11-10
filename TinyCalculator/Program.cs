@@ -44,6 +44,7 @@ while (con)
         {
             con = true;
         }
+        Console.WriteLine($"Dividend: {dividend}");
     }
 }
 static int ReadNumber(string name)
