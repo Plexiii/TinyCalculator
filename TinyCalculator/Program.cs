@@ -3,6 +3,8 @@
 int dividend = ReadNumber("Dividend");
 int divisor = ReadNumber("Divisor");
 
+string op = GetOperator();
+
 if (divisor == 0)
 {
     Console.ForegroundColor = ConsoleColor.Red;
@@ -12,10 +14,24 @@ if (divisor == 0)
 else
 {
     Console.ForegroundColor = ConsoleColor.Green;
-    Console.WriteLine($"{dividend} / {divisor} = {dividend / divisor}");
+    if (op == "/")
+    {
+        Console.WriteLine($"{dividend} / {divisor} = {dividend / divisor}");
+    }
+    if (op == "*")
+    {
+        Console.WriteLine($"{dividend} * {divisor} = {dividend * divisor}");
+    }
+    if (op == "+")
+    {
+        Console.WriteLine($"{dividend} + {divisor} = {dividend + divisor}");
+    }
+    if (op == "-")
+    {
+        Console.WriteLine($"{dividend} - {divisor} = {dividend - divisor}");
+    }
     Console.ResetColor();
 }
-
 static int ReadNumber(string name)
 {
     while (true)
@@ -30,4 +46,9 @@ static int ReadNumber(string name)
         Console.WriteLine($"{input} is not a number.");
         Console.ResetColor();
     }
+}
+string GetOperator()
+{
+    Console.Write("Select Operator: ");
+    return Console.ReadLine();
 }
