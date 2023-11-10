@@ -1,36 +1,50 @@
 ﻿Console.WriteLine("== Tiny calculator ==");
 
-int dividend = ReadNumber("Dividend");
-int divisor = ReadNumber("Divisor");
-
-string op = GetOperator();
-
-if (divisor == 0)
+    int dividend = ReadNumber("Dividend");
+bool con = true;
+while (con)
 {
-    Console.ForegroundColor = ConsoleColor.Red;
-    Console.WriteLine("Divisor darf nicht 0 sein.");
-    Console.ResetColor();
-}
-else
-{
-    Console.ForegroundColor = ConsoleColor.Green;
-    if (op == "/")
+    con = false;
+    string op = GetOperator();
+    int divisor = ReadNumber("Divisor");
+    int sol = 0;
+
+    if (divisor == 0)
     {
-        Console.WriteLine($"{dividend} / {divisor} = {dividend / divisor}");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("Divisor darf nicht 0 sein.");
+        Console.ResetColor();
     }
-    if (op == "*")
+    else
     {
-        Console.WriteLine($"{dividend} * {divisor} = {dividend * divisor}");
+        Console.ForegroundColor = ConsoleColor.Green;
+        if (op == "/")
+        {
+            sol = dividend / divisor;
+        }
+        if (op == "*")
+        {
+            sol = dividend * divisor;
+
+        }
+        if (op == "+")
+        {
+            sol = dividend + divisor;
+        }
+        if (op == "-")
+        {
+            sol = dividend - divisor;
+        }
+        Console.WriteLine($"{dividend} {op} {divisor} = {sol}");
+        Console.ResetColor();
+        dividend = sol;
+        Console.WriteLine("Wollen sie weiterrechnen?");
+        string x = Console.ReadLine();
+        if(x == "y")
+        {
+            con = true;
+        }
     }
-    if (op == "+")
-    {
-        Console.WriteLine($"{dividend} + {divisor} = {dividend + divisor}");
-    }
-    if (op == "-")
-    {
-        Console.WriteLine($"{dividend} - {divisor} = {dividend - divisor}");
-    }
-    Console.ResetColor();
 }
 static int ReadNumber(string name)
 {
