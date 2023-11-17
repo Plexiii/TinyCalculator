@@ -35,6 +35,10 @@ while (con)
         {
             sol = dividend - divisor;
         }
+        if (op == "^")
+        {
+            sol = (int)Math.Pow(dividend, divisor);
+        }
         Console.WriteLine($"{dividend} {op} {divisor} = {sol}");
         Console.ResetColor();
         dividend = sol;
@@ -70,7 +74,7 @@ string GetOperator()
     {
         Console.Write("Select Operator: ");
         string? op = Console.ReadLine();
-        if (op == "/" || op == "*" || op == "+" || op == "-")
+        if (op == "/" || op == "*" || op == "+" || op == "-" || op == "^")
         {
             return op;
         }
